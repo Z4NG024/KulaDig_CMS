@@ -655,7 +655,7 @@ $pro_active = ( in_array( 'elementskit/elementskit.php', apply_filters( 'active_
 								'type'        => 'text',
 								'name'        => 'user_data[google_map][api_key]',
 								'label'       => esc_html__( 'Api Key', 'elementskit-lite' ),
-								'placeholder' => 'AIzaSyA-10-OHpfss9XvUDWILmos62MnG_L4MYw',
+								'placeholder' => 'hahasike',
 								'value'       => ( ! isset( $user_data['google_map']['api_key'] ) ) ? '' : ( $user_data['google_map']['api_key'] ),
 							)
 						);
