@@ -1,0 +1,226 @@
+/* Artefakt-Detail: Viewer links, Info rechts + Grid darunter. */
+
+/* Layout-Wrapper */
+.kld-a-wrap{
+  max-width:1200px;
+  width:min(1200px,96vw);
+  margin:24px auto 60px;
+}
+
+/* Breadcrumbs ueber dem Layout */
+.kld-a-breadcrumb{
+  font-size:12px;
+  color:#64748b;
+  margin:0 0 10px;
+}
+.kld-a-breadcrumb a{
+  color:#64748b;
+  text-decoration:none;
+}
+.kld-a-breadcrumb a:hover{ text-decoration:underline; }
+
+/* Zweispaltiges Grundlayout */
+.kld-a-layout{
+  display:grid;
+  grid-template-columns:1.45fr .85fr;
+  gap:18px;
+  align-items:start;
+}
+
+/* Viewer-Card */
+.kld-a-viewerCard{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 14px 40px rgba(15,23,42,.10);
+}
+
+/* Leiste oben im Viewer (Badge etc.) */
+.kld-a-viewerTop{
+  padding:12px 12px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* Badge-Stil fuer Kategorie/Typ */
+.kld-a-badge{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-weight:800;
+  font-size:11px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#f1f5f9;
+  color:#0f172a;
+  border:1px solid rgba(15,23,42,.06);
+}
+
+/* Viewer-Flaeche (grau als neutraler Hintergrund) */
+.kld-a-viewer{
+  height:min(560px,72vh);
+  background:#e5e7eb;
+  position:relative;
+}
+.kld-a-viewer model-viewer{
+  width:100%;
+  height:100%;
+  display:block;
+  background:transparent;
+}
+
+/* Leichter Loading-Schimmer oben */
+.kld-a-viewer::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(1200px 500px at 50% 30%, rgba(255,255,255,.55), transparent 55%);
+  opacity:.75;
+}
+
+/* Infokarte rechts, bleibt sticky */
+.kld-a-info{
+  background:#fff;
+  border-radius:16px;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 14px 40px rgba(15,23,42,.10);
+  padding:16px;
+  position:sticky;
+  top:16px;
+}
+
+.kld-a-title{
+  margin:0;
+  font-size:26px;
+  line-height:1.15;
+  font-weight:900;
+  color:#0f172a;
+}
+
+/* Meta-Chips */
+.kld-a-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0 12px;
+}
+
+.kld-a-chip{
+  font-size:12px;
+  font-weight:800;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#e9f0ff;
+  color:#1d4ed8;
+  border:1px solid rgba(29,78,216,.10);
+}
+
+/* Abschnittstitel in der Info-Box */
+.kld-a-h2{
+  margin:14px 0 6px;
+  font-size:13px;
+  font-weight:900;
+  color:#0f172a;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.kld-a-p{
+  margin:0;
+  color:#334155;
+  line-height:1.65;
+  font-size:14px;
+}
+
+/* Key-Value Grid */
+.kld-a-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
+}
+
+.kld-a-kv{
+  background:#f8fafc;
+  border:1px solid rgba(15,23,42,.06);
+  border-radius:12px;
+  padding:10px;
+}
+
+.kld-a-k{
+  font-size:11px;
+  color:#64748b;
+  margin:0 0 4px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.kld-a-v{
+  font-size:13px;
+  color:#0f172a;
+  margin:0;
+  font-weight:800;
+}
+
+/* Historischer Kontext Button: ausgeblendet */
+.kld-a-btn,
+.kld-a-context{
+  display:none !important;
+}
+
+/* Missing-Status fuer leere Daten */
+.kld-a-missing{
+  padding:16px;
+  color:#0f172a;
+  background:#fff;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:16px;
+}
+
+/* ===== Grid (Cards) ===== */
+.kld-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+/* Grund-Schatten + Hover */
+.kld-card{
+  display:block;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  text-decoration:none;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 14px 34px rgba(15,23,42,.12);
+  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+  will-change: transform;
+}
+.kld-card:hover{
+  box-shadow:0 26px 64px rgba(15,23,42,.20);
+  transform:translateY(-3px);
+  border-color: rgba(15,23,42,.12);
+}
+
+.kld-card img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  display:block;
+  background:#e2e8f0;
+}
+
+/* Responsive: eine Spalte weniger. */
+@media (max-width:980px){
+  .kld-a-layout{ grid-template-columns:1fr; }
+  .kld-a-info{ position:static; }
+  .kld-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width:560px){
+  .kld-grid{ grid-template-columns:1fr; }
+}

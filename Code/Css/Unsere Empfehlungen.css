@@ -1,0 +1,122 @@
+/* Empfehlungen: Karten-Grid mit Bild, Badge und Kurztext. */
+.kld-reco{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* Titel ueber dem Grid. */
+.kld-reco-title{
+  text-align:center;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 900;
+  color:#0f172a;
+  margin: 0 0 26px;
+}
+
+/* Grid-Layout fuer die Karten. */
+.kld-reco-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+/* Kartenrahmen + Hover. */
+.kld-reco-card{
+  display:block;
+  text-decoration:none !important;
+  background:#fff;
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.kld-reco-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 22px 58px rgba(15, 23, 42, 0.18);
+}
+
+/* Bildbereich oben. */
+.kld-reco-media{
+  position:relative;
+  height: 210px;
+  background:#e2e8f0;
+}
+
+.kld-reco-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.kld-reco-media.kld-reco-noimg{
+  background: linear-gradient(135deg, #e2e8f0, #f8fafc);
+}
+
+/* Badge oben rechts. */
+.kld-reco-badge{
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  max-width: 70%;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  color:#334155;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+}
+
+/* Inhaltsteil mit Titel, Text, Link. */
+.kld-reco-body{
+  padding: 18px 18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  min-height: 165px;
+}
+
+.kld-reco-h3{
+  margin:0;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 900;
+  color:#0f172a;
+}
+
+.kld-reco-desc{
+  margin:0;
+  color:#64748b;
+  font-size: 13px;
+  line-height: 1.6;
+
+  display:-webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow:hidden;
+}
+
+.kld-reco-link{
+  margin-top:auto;
+  color:#2563eb;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Responsive: Spaltenzahl reduzieren. */
+@media (max-width: 1024px){
+  .kld-reco-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kld-reco-title{ font-size: 36px; }
+}
+
+@media (max-width: 680px){
+  .kld-reco-grid{ grid-template-columns: 1fr; }
+}

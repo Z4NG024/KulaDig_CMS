@@ -1,0 +1,140 @@
+/* Suche + Autocomplete: Layout und Styling. */
+.kuladig-search{
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  color: #fff !important;
+  position: relative; /* wichtig fuer Dropdown */
+}
+
+/* Formular: Input + Button als Pille */
+.kuladig-search .kuladig-search-form{
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* Input */
+.kuladig-search .kuladig-search-input{
+  flex: 1 1 auto;
+  color: #fff !important;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px 0 0 999px;
+  border: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  font-size: 2rem;
+}
+
+/* Placeholder in weiss */
+.kuladig-search .kuladig-search-input::placeholder{
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* Button */
+.kuladig-search .kuladig-search-form button{
+  padding: 0.95rem 2.2rem;
+  border-radius: 0 999px 999px 0;
+  border: 2px solid #fff;
+  border-left: none;
+  background: #fff;
+  color: #000;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.kuladig-search .kuladig-search-form button:hover{
+  background: #f5f5f5;
+  color: #1e73be;
+}
+
+/* Meldung unter dem Formular */
+.kuladig-search .kuladig-search-message{
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+/* Autocomplete-Dropdown */
+.kuladig-autocomplete{
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* Box fuer die Treffer */
+.kuladig-ac-list{
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.26);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Einzelnes Ergebnis */
+.kuladig-ac-item{
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kuladig-ac-item:hover{
+  background: rgba(30,115,190,0.12);
+}
+
+/* Thumbnail (groesser) */
+.kuladig-ac-thumb{
+  width: 82px;
+  height: 58px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.kuladig-ac-thumb--empty{
+  background: rgba(0,0,0,0.08);
+}
+
+/* Textbereich */
+.kuladig-ac-text{
+  min-width: 0;
+  flex: 1;
+}
+
+.kuladig-ac-title{
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kuladig-ac-desc{
+  color: #6b7280;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Auf kleinen Screens etwas kompakter */
+@media (max-width: 768px){
+  .kuladig-search .kuladig-search-input{ font-size: 1.4rem; }
+  .kuladig-ac-thumb{ width: 70px; height: 50px; }
+  .kuladig-ac-title{ font-size: 1.05rem; }
+  .kuladig-ac-desc{ font-size: 0.98rem; }
+}

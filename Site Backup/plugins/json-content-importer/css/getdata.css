@@ -1,0 +1,59 @@
+<style>
+
+		div .playload {   display: none; }
+		div .csvsettings {   display: none; }
+    
+	.tooltip {
+        position: relative; 
+        display: inline-block;
+        cursor: pointer;
+	}
+
+
+
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        width: 450px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.1s; 
+    }
+
+    .tooltip .tooltip-text::after {
+        content: '';
+        position: absolute;
+        top: 100%; 
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+	
+.tooltip-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #0073aa;
+        color: white;
+        text-align: center;
+        font-size: 12px;
+        line-height: 16px;
+        cursor: pointer; 
+    }	
+</style>

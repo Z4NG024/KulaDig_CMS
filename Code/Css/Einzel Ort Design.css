@@ -1,0 +1,237 @@
+/* Detailseite: Layout fuer Header, Map-Card, Inhaltsbereich + TOC. */
+.kldp{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+  color: #0f172a;
+}
+
+/* Oberer Bereich: Medien links, Map-Card rechts. */
+.kldp-top{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-bottom: 22px;
+}
+
+/* Karten-Look fuer Bild und Map. */
+.kldp-media,
+.kldp-mapcard{
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+}
+
+/* Bildplatzhalter mit fester Hoehe. */
+.kldp-image{
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+.kldp-image--empty{
+  height: 360px;
+  background: linear-gradient(135deg, rgba(15,23,42,0.06), rgba(15,23,42,0.02));
+}
+
+/* Mapcard: Map oben, Actions darunter. */
+.kldp-mapcard{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Map bekommt feste Hoehe, damit die Karte stabil bleibt. */
+.kldp-map{
+  width: 100%;
+  height: 300px;
+  display: block;
+}
+
+/* Actions unter der Map. */
+.kldp-map-actions{
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(15,23,42,0.06);
+  background: #fff;
+}
+
+/* Buttons im Actions-Bereich. */
+.kldp-btn{
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(15,23,42,.04);
+  color:#0f172a;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.kldp-btn:hover{
+  background: rgba(15,23,42,.06);
+}
+
+.kldp-btn-primary{
+  background:#0f172a;
+  border-color:#0f172a;
+  color:#fff;
+}
+.kldp-btn-primary:hover{
+  background:#0b1220;
+  border-color:#0b1220;
+}
+
+.kldp-btn[disabled]{
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* Kleine Statusmeldungen unter den Actions. */
+.kldp-toast{
+  margin: 0 12px 12px;
+  display: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,.08);
+  background:#fff;
+  box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+  font-size: 12px;
+  font-weight: 800;
+  color:#0f172a;
+}
+.kldp-toast.is-on{ display:block; }
+
+/* Hauptlayout: Sidebar + Inhalt. */
+.kldp-main{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* Sidebar bleibt beim Scrollen sichtbar. */
+.kldp-aside{
+  position: sticky;
+  top: 90px;
+}
+
+/* TOC-Box. */
+.kldp-toc{
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+  padding: 16px 14px;
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+.kldp-toc-title{
+  font-size: 12px;
+  letter-spacing: .12em;
+  font-weight: 800;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.kldp-toc-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links fuer Haupt- und Unterebenen. */
+.kldp-toc-item a{
+  display: block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.kldp-toc-item--h3 a{
+  color: #334155;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.kldp-toc-item a:hover{
+  background: rgba(30,115,190,0.10);
+  color: #1e73be;
+}
+
+/* Headline + Intro-Box im Content. */
+.kldp-title{
+  font-size: clamp(26px, 2.2vw + 14px, 40px);
+  margin: 6px 0 10px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.kldp-intro{
+  background: #f8fafc;
+  border-left: 4px solid #1e73be;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* Abschnittsnummern fuer H2. */
+.kldp-content{ counter-reset: kldsec; }
+
+.kldp-content h2{
+  counter-increment: kldsec;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 26px 0 12px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.kldp-content h2::before{
+  content: counter(kldsec);
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #1e73be;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* Typografie fuer Untertitel und Text. */
+.kldp-content h3{
+  margin: 18px 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.kldp-content p{
+  margin: 0 0 12px;
+  line-height: 1.75;
+  color: #334155;
+  font-size: 16px;
+}
+
+/* Responsive: alles untereinander stapeln. */
+@media (max-width: 980px){
+  .kldp-top{ grid-template-columns: 1fr; }
+  .kldp-image{ height: 300px; }
+  .kldp-map{ height: 260px; }
+  .kldp-main{ grid-template-columns: 1fr; }
+  .kldp-aside{ position: static; }
+}

@@ -1,0 +1,219 @@
+/* Hero + Karten (Version B): zweigeteilter Hero und Grid darunter. */
+
+/* Breite fuer Hero und Karten */
+.kuladig-hero-wrapper,
+.kuladig-card-grid{
+  max-width: 1400px;
+  width: min(1400px, 98vw);
+  margin: 0 auto;
+}
+
+/* Card-Look fuer Wrapper und einzelne Karten */
+.kuladig-hero-wrapper,
+.kuladig-card{
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background:#fff;
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.5);
+}
+
+/* ===== Hero ===== */
+.kuladig-hero-slider{ position:relative; }
+
+.kuladig-hero-slide{
+  display:none;
+  width:100%;
+  min-height: 460px;
+  background:#fff;
+}
+.kuladig-hero-slide.is-active{ display:flex; }
+
+.kuladig-hero-media{
+  flex: 0 0 62%;
+  min-height: 460px;
+  background-size: cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:#e2e8f0;
+  border-radius: 22px 0 0 22px;
+}
+
+.kuladig-hero-panel{
+  flex: 1;
+  padding: 46px 52px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap: 18px;
+  background:#fff;
+  box-shadow: inset 1px 0 0 rgba(15,23,42,0.06);
+}
+
+/* Badge */
+.kuladig-hero-badge{
+  display:inline-flex;
+  align-self:flex-start;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:#e9f0ff;
+  color:#1d4ed8;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* Text sichtbar + schwarz (Theme-Fix: text-fill / clip / transparent) */
+.kuladig-hero-title{
+  margin:0;
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+
+  color:#0f172a !important;
+  -webkit-text-fill-color:#0f172a !important;
+  background:none !important;
+  -webkit-background-clip: border-box !important;
+  text-shadow:none !important;
+}
+
+.kuladig-hero-text{
+  margin:0;
+  font-size:15px;
+  line-height:1.6;
+
+  color:#334155 !important;
+  -webkit-text-fill-color:#334155 !important;
+  background:none !important;
+  text-shadow:none !important;
+
+  display:-webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow:hidden;
+}
+
+/* Button */
+.kuladig-hero-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  align-self:flex-start;
+  margin-top: 6px;
+  background:#1d4ed8;
+  color:#fff !important;
+  text-decoration:none !important;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight:700;
+  box-shadow: 0 8px 18px rgba(29,78,216,.22);
+}
+
+/* Arrows */
+.kuladig-hero-arrow{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius: 999px;
+  border:0;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+  cursor:pointer;
+  font-size:28px;
+  line-height:44px;
+  text-align:center;
+  color:#0f172a;
+  z-index:5;
+}
+.kuladig-hero-prev{ left: 14px; }
+.kuladig-hero-next{ right: 14px; }
+
+/* ===== Cards ===== */
+.kuladig-card-grid{
+  margin: 26px auto 0;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 18px;
+}
+
+.kuladig-card{
+  display:flex;
+  gap: 14px;
+  align-items:stretch;
+  text-decoration:none !important;
+  color: inherit;
+}
+
+.kuladig-card-media{
+  flex: 0 0 42%;
+  min-height: 160px;
+  background-size: cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:#e2e8f0;
+  border-radius: 22px 0 0 22px;
+}
+
+.kuladig-card-body{
+  flex: 1;
+  padding: 18px 18px 18px 0;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.kuladig-card-title{
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+
+  color:#0f172a !important;
+  -webkit-text-fill-color:#0f172a !important;
+  background:none !important;
+
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:hidden;
+}
+
+.kuladig-card-text{
+  font-size: 13px;
+  line-height: 1.55;
+
+  color:#475569 !important;
+  -webkit-text-fill-color:#475569 !important;
+  background:none !important;
+
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:hidden;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px){
+  .kuladig-card-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+@media (max-width: 980px){
+  .kuladig-hero-slide.is-active{ flex-direction:column; }
+  .kuladig-hero-media{
+    flex: 0 0 auto;
+    min-height: 280px;
+    border-radius: 22px 22px 0 0;
+  }
+  .kuladig-hero-panel{ padding: 26px 22px; }
+  .kuladig-hero-title{ font-size: 28px; }
+
+  .kuladig-card-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .kuladig-card{ flex-direction:column; }
+  .kuladig-card-media{ border-radius: 22px 22px 0 0; }
+  .kuladig-card-body{ padding: 16px; }
+}
+
+@media (max-width: 560px){
+  .kuladig-card-grid{ grid-template-columns: 1fr; }
+}

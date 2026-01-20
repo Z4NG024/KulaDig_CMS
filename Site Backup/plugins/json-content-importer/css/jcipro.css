@@ -1,0 +1,14 @@
+<style>
+     .jcibutton:hover {
+        background-color: white;
+        color: #1c87c9;
+      }
+	  .jcibutton {
+        background-color: #1c87c9;
+        color: white;
+        padding: 28px 28px;
+        display: inline-block;
+        font-size: 21px;
+      }
+
+</style>

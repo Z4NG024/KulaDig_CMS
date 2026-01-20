@@ -1,0 +1,195 @@
+.envira-addon-upsell-modal {
+  display: none;
+  .envira-addon-upsell-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 9991;
+  }
+
+  .envira-addon-upsell-modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 12px;
+    z-index: 9992;
+    max-width: 640px;
+    width: 100%;
+    box-shadow: 4px 8px 32px 0px #00000014;
+    max-height: 85vh;
+    overflow-y: auto;
+
+    .close-envira-addon-upsell-modal {
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      top: 21px;
+      right: 21px;
+      background: transparent;
+      border: none;
+      font-size: 30px;
+      text-decoration: none;
+      color: #000;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background: none;
+      &:focus,
+      &:active {
+        outline: none;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .upsell-content-container {
+		display: flex;
+    flex-direction: column;
+    width: 100%;
+		height: 100%;
+    text-align: center;
+
+    h3 {
+		margin: 24px 0 0 0;
+    font-weight: 600;
+    font-size: 20px;
+		color: #0D0E11;
+		line-height: 32px;
+    }
+.top-content{
+	  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 50%;
+		padding: 32px 40px 24px 40px;
+}
+.top-content img {
+width: 32px;
+height: 32px;
+	}
+		.top-content p{
+    font-size: 14px;
+		color: #393E4B;
+		margin: 12px 0 0 0;
+		line-height: 20px;
+		}
+		.connector-icon{
+			position: absolute;
+			top: -19px;
+      left: 162px;
+		}
+	  .bottom-content {
+		display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 50%;
+		padding: 32px 139px;
+		background-color: #F0FDE6;
+		position: relative;
+
+			p{
+				margin: 16px 0 0 0;
+				font-size: 14px;
+			}
+		.button-upsell-modal {
+		  display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 12px;
+			background: #00ac53;
+			border-color: #00ac53;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+			color: #fff;
+			font-size: 20px;
+			border-radius: 6px;
+			height: 56px;
+			width: 219px;
+			line-height: 48px;
+
+			&:hover {
+				background: #1C803D;
+				border-color: #1C803D;
+				color: #fff;
+			}
+		}
+    .discount-section {
+		display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    column-gap: 12px;
+		img{
+		width: 30px;
+    height: 30px;
+		}
+		.discount-percentage{
+		position: relative;
+    display: flex;
+
+		span{
+		position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+		color: white;
+			}
+		}
+		p{
+		margin: 0;
+		text-align: left;
+    line-height: 20px;
+		}
+            .offer-text {
+              font-weight: 700;
+            }
+          }
+        }
+
+  }
+
+	/**
+	 * Responsive.
+	 */
+
+
+  @media (min-width: 481px) and (max-width: 588px) {
+    .envira-addon-upsell-modal-content {
+      width: 85vw;
+    }
+  .upsell-content-container {
+		.bottom-content{
+			padding: 32px 40px;
+		}
+			.connector-icon{
+		display: none;
+		}
+		.discount-section{
+			flex-direction: column;
+			gap: 12px;
+			p{
+				text-align: center!important;
+			}
+		}
+  }
+}
+
+  @media (max-width: 480px) {
+    // .envira-addon-upsell-modal-content {
+    //   max-width: 75%;
+    //   padding: 15px;
+    //   max-height: 85vh;
+    //   top: 10%;
+    //   transform: translate(-50%, 0);
+    //   overflow-y: auto;
+    // }
+  }
+}

@@ -1,0 +1,122 @@
+/* Hero-Slider: Vollbild-Bereich mit Titel, Text und CTA. */
+.kuladig-hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: min(70vh, 620px);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.kuladig-hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Einzelne Slides liegen uebereinander, aktiv wird eingeblendet. */
+.kuladig-hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.kuladig-hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dunkler Verlauf fuer bessere Lesbarkeit. */
+.kuladig-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.25) 50%,
+    rgba(0,0,0,0.05) 100%
+  );
+}
+
+/* Textblock im unteren linken Bereich. */
+.kuladig-hero-content {
+  position: absolute;
+  left: 6%;
+  bottom: 10%;
+  max-width: 40rem;
+  color: #ffffff !important; /* Textfarbe erzwingen */
+}
+
+/* Titel + Text weiss mit Schatten fuer Kontrast. */
+.kuladig-hero-title {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  margin: 0 0 0.5rem 0;
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.kuladig-hero-text {
+  max-width: 38rem;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+/* CTA-Button */
+.kuladig-hero-button {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: #1e73be;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.kuladig-hero-button:hover {
+  background: #15528a;
+}
+
+/* Navigationspfeile */
+.kuladig-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.kuladig-hero-prev { left: 16px; }
+.kuladig-hero-next { right: 16px; }
+
+.kuladig-hero-arrow:hover {
+  background: #fff;
+}
+
+/* Mobile-Anpassungen */
+@media (max-width: 768px) {
+  .kuladig-hero-wrapper {
+    height: 60vh;
+  }
+  .kuladig-hero-content {
+    left: 8%;
+    right: 8%;
+    bottom: 12%;
+  }
+}
